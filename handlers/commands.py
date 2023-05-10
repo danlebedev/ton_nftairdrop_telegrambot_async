@@ -6,7 +6,7 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 router = Router()
 
-# Хэндлер на команду /start
+# Хэндлер на команду /start.
 @router.message(Command('start'))
 async def cmd_start(message: types.Message):
     builder = ReplyKeyboardBuilder()

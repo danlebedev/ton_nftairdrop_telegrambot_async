@@ -3,7 +3,7 @@ import logging
 from aiogram import Bot, Dispatcher
 
 import config
-from handlers import commands
+from handlers import commands, messages
 
 
 # Запуск бота.
@@ -17,6 +17,7 @@ async def main():
     # Добавляем роутеры.
     dp.include_routers(
         commands.router,
+        messages.router,
     )
 
     # Запускаем бота и пропускаем все накопленные входящие.
