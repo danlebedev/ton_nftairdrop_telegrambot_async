@@ -14,7 +14,7 @@ async def main():
     # Объект бота.
     bot = Bot(token=config.token)
     # Диспетчер.
-    dp = Dispatcher(storage=MemoryStorage)
+    dp = Dispatcher(storage=MemoryStorage())
     # Добавляем роутеры.
     dp.include_routers(
         all_handlers.router,
