@@ -25,8 +25,9 @@ async def msg_next(message: types.Message):
         reply_markup=types.ReplyKeyboardRemove(),
     )
 
-# Хэндлер на сообщение "Выход".
+# Хэндлеры на сообщение "Выход" и команду /stop.
 @router.message(Text('Выход'))
+@router.message(Command('stop'))
 async def msg_exit(message: types.Message):
     await message.answer(
         text='Пока-пока...',
