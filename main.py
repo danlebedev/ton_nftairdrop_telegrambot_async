@@ -1,9 +1,10 @@
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher
+from aiogram.fsm.storage.memory import MemoryStorage
 
 import config
-from handlers import commands, messages
+from handlers import all_handlers
 
 
 # Запуск бота.
@@ -13,11 +14,10 @@ async def main():
     # Объект бота.
     bot = Bot(token=config.token)
     # Диспетчер.
-    dp = Dispatcher()
+    dp = Dispatcher(storage=MemoryStorage)
     # Добавляем роутеры.
     dp.include_routers(
-        commands.router,
-        messages.router,
+        all_handlers.router,
     )
 
     # Запускаем бота и пропускаем все накопленные входящие.
